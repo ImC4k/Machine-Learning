@@ -1,0 +1,4 @@
+function y = formal_neuron(x, w, h)
+    p = x'*w;
+    y = p>h;
+end
