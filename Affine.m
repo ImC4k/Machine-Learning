@@ -1,23 +1,23 @@
 classdef Affine < handle
   properties
-		weights;
-		bias;
+	weights;
+	bias;
     x;
     dw;
     db;
-	end
+  end
 	
-	methods
+  methods
     function obj = Affine(w,b)
       obj.weights = w;
       obj.bias = b;
     end
       
-		function y = forward(obj, x)
+	function y = forward(obj, x)
       obj.x = x;
-			p = obj.weights * x;
+	  p = obj.weights * x;
       y = p + obj.bias;
-		end
+	end
     
     function dL = backward(obj, dL0)
       dL = obj.weights' * dL0;
@@ -30,5 +30,5 @@ classdef Affine < handle
       obj.weights = obj.weights - learning_rate * obj.dw;
       obj.bias = obj.bias - learning_rate * obj.db;
     end 
-	end
+  end
 end
